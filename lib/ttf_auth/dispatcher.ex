@@ -1,4 +1,9 @@
 defmodule TTFAuth.Dispatcher do
+  @moduledoc """
+  TTFAuth.Dispatcher implements the Supervisor behaviour.
+  Dispatches messeges with generated access codes.
+  """
+
   use Supervisor
   require Logger
 
@@ -6,10 +11,22 @@ defmodule TTFAuth.Dispatcher do
     Supervisor.start_link(__MODULE__, [], name: __MODULE__)
   end
 
-  def init([]) do
-    Supervisor.init([spec()], strategy: :simple_one_for_one, max_restarts: 5)
-  end
+  @doc """
+  create_passport/3 creates an access code and dispatches a worker
+  process representing the access code and a messenger process to
+  send the code.
 
+  Returns: `{:ok, access_code} | {:error, error_message}`
+
+  ## Example
+
+    ```elixir
+    TTFAuth.Dispatcher("5555555555", "4444444444", "Message")
+    {:ok, "thisistheaccesscode"}
+    ```
+  """
+
+  @spec create_passport(String.t(), String.t(), String.t()) :: {:ok, String.t()} | {:error, String.t()}
   def create_passport(entity, from, message) do
     token =
       System.system_time(:millisecond)
@@ -27,6 +44,18 @@ defmodule TTFAuth.Dispatcher do
         {:ok, token}
     end
   end
+
+  #####
+  # Callbacks
+  #####
+
+  def init([]) do
+    Supervisor.init([spec()], strategy: :simple_one_for_one, max_restarts: 5)
+  end
+
+  #####
+  # Private
+  #####
 
   defp log_dispacth(response) do
     response

@@ -1,5 +1,3 @@
 defmodule TTFAuth do
-  @moduledoc """
-  Documentation for TTFAuth.
-  """
+  @moduledoc false
 end
