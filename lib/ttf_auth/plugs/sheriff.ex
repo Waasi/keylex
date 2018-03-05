@@ -1,4 +1,29 @@
 defmodule TTFAuth.Plugs.Sheriff do
+  @moduledoc """
+  TTFAuth.Plugs.Sheriff will check for an authorization header
+  with value: "#\{entity\} #\{code\}" and place the entity in as a
+  private property in the Plug.Conn structure.
+
+  Here is an usage example in Phoenix Framework:
+
+  ```elixir
+  defmodule MyAppWeb.Router do
+    use MyAppWeb, :router
+
+    pipeline :api do
+      plug :accepts, ["json"]
+      plug TTFAuth.Plugs.GQLSheriff
+    end
+
+    scope "/" do
+      pipe_through :api
+
+      # protected routes here
+    end
+  end
+  ```
+  """
+
   import Plug.Conn
 
   def init(_opts), do: []

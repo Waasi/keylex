@@ -1,4 +1,28 @@
 defmodule TTFAuth.Plugs.GQLSheriff do
+  @moduledoc """
+  TTFAuth.Plugs.GQLSheriff will check for an authorization header
+  with value: "#\{entity\} #\{code\}" and place the entity in as a
+  private property in the Plug.Conn structure absinthe context.
+
+  Here is an usage example for GraphQL using Absinthe & Phoenix:
+
+  ```elixir
+  defmodule MyAppWeb.Router do
+    use MyAppWeb, :router
+
+    pipeline :api do
+      plug :accepts, ["json"]
+      plug TTFAuth.Plugs.GQLSheriff
+    end
+
+    scope "/" do
+      pipe_through :api
+      forward "/", Absinthe.Plug, schema: MyAppWeb.Schema
+    end
+  end
+  ```
+  """
+
   @behaviour Plug
 
   import Plug.Conn
