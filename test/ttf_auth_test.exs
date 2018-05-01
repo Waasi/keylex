@@ -1,4 +1,4 @@
-defmodule TTFAuthTest do
+defmodule KeylexTest do
   use ExUnit.Case
-  doctest TTFAuth
+  doctest Keylex
 end

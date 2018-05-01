@@ -1,14 +1,14 @@
-defmodule TTFAuth.Application do
+defmodule Keylex.Application do
   @moduledoc false
 
   use Application
 
   def start(_type, _args) do
     children = [
-      {TTFAuth.Dispatcher, []},
+      {Keylex.Dispatcher, []},
     ]
 
-    opts = [strategy: :one_for_one, name: TTFAuth.Supervisor]
+    opts = [strategy: :one_for_one, name: Keylex.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end

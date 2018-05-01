@@ -1,3 +1,3 @@
-defmodule TTFAuth do
+defmodule Keylex do
   @moduledoc false
 end

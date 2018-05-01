@@ -1,9 +1,9 @@
-defmodule TTFAuth.WorkerTest do
+defmodule Keylex.WorkerTest do
   use ExUnit.Case
 
   setup do
-    Application.put_env(:ttf_auth, :sender, TTFAuth.TestHelper.TestMessenger)
-    {:ok, pid} = TTFAuth.Worker.start_link("7875555555 ace123", %{from: "from", to: "to", body: "body"})
+    Application.put_env(:ttf_auth, :sender, Keylex.TestHelper.TestMessenger)
+    {:ok, pid} = Keylex.Worker.start_link("7875555555 ace123", %{from: "from", to: "to", body: "body"})
     {:ok, worker: pid}
   end
 

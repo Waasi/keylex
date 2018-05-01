@@ -1,10 +1,10 @@
-defmodule TTFAuth.Messenger do
+defmodule Keylex.Messenger do
   @moduledoc """
-  TTFAuth.Messenger provides a behaviour for future and custom Messenger Implementations for example:
+  Keylex.Messenger provides a behaviour for future and custom Messenger Implementations for example:
 
   ```elixir
   defmodule MyApp.Messenger do
-    @behaviour TTFAuth.Messenger
+    @behaviour Keylex.Messenger
 
     def send_message(from, to, body, code) do
       message = "use this code #\{code\} to #\{body\}"

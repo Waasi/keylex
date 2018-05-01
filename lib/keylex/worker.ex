@@ -1,4 +1,4 @@
-defmodule TTFAuth.Worker do
+defmodule Keylex.Worker do
   @moduledoc false
 
   use GenServer

@@ -1,3 +1,3 @@
 use Mix.Config
-config :ttf_auth,
+config :keylex,
   expiration_time: 3000

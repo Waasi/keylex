@@ -1,6 +1,6 @@
-defmodule TTFAuth.Dispatcher do
+defmodule Keylex.Dispatcher do
   @moduledoc """
-  TTFAuth.Dispatcher implements the Supervisor behaviour.
+  Keylex.Dispatcher implements the Supervisor behaviour.
   Dispatches messeges with generated access codes.
   """
 
@@ -21,7 +21,7 @@ defmodule TTFAuth.Dispatcher do
   ## Example
 
     ```elixir
-    TTFAuth.Dispatcher("5555555555", "4444444444", "Message")
+    Keylex.Dispatcher("5555555555", "4444444444", "Message")
     {:ok, "thisistheaccesscode"}
     ```
   """
@@ -65,8 +65,8 @@ defmodule TTFAuth.Dispatcher do
 
   defp spec do
     %{
-      id: TTFAuth.Worker,
-      start: {TTFAuth.Worker, :start_link, []},
+      id: Keylex.Worker,
+      start: {Keylex.Worker, :start_link, []},
       restart: :transient,
       type: :worker
     }

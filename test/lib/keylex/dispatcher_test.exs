@@ -1,7 +1,7 @@
-defmodule TTFAuth.DispatcherTest do
+defmodule Keylex.DispatcherTest do
   use ExUnit.Case
 
-  alias TTFAuth.Dispatcher
+  alias Keylex.Dispatcher
 
   test "dispatches a passwort process" do
     {:ok, token} = Dispatcher.create_passport("7875555555", "from", "message")

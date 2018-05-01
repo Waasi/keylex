@@ -1,6 +1,6 @@
-defmodule TTFAuth.Plugs.Sheriff do
+defmodule Keylex.Plugs.Sheriff do
   @moduledoc """
-  TTFAuth.Plugs.Sheriff will check for an authorization header
+  Keylex.Plugs.Sheriff will check for an authorization header
   with value: "#\{entity\} #\{code\}" and place the entity in as a
   private property in the Plug.Conn structure.
 
@@ -12,7 +12,7 @@ defmodule TTFAuth.Plugs.Sheriff do
 
     pipeline :api do
       plug :accepts, ["json"]
-      plug TTFAuth.Plugs.GQLSheriff
+      plug Keylex.Plugs.GQLSheriff
     end
 
     scope "/" do
