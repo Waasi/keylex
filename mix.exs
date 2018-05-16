@@ -4,8 +4,8 @@ defmodule Keylex.Mixfile do
   def project do
     [
       app: :keylex,
-      version: "0.0.1",
-      elixir: "~> 1.5",
+      version: "0.2.0",
+      elixir: "~> 1.6",
       start_permanent: Mix.env == :prod,
       deps: deps(),
       description: description(),
@@ -22,7 +22,13 @@ defmodule Keylex.Mixfile do
     ]
   end
 
-  defp deps, do: [{:plug, "~> 1.0"}, {:ex_doc, ">= 0.0.0", only: :dev}]
+  defp deps do
+    [
+      {:plug, "~> 1.0"},
+      {:jason, "~> 1.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev},
+    ]
+  end
 
   defp description do
     "Keylex is an Elixir OTP App for providing and managing temporary access codes without Databases, just good old processes."

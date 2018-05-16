@@ -62,11 +62,11 @@ defmodule Keylex.Worker do
   #####
 
   defp expiration_time do
-    Application.get_env(:ttf_auth, :expiration_time)
+    Application.get_env(:keylex, :expiration_time)
   end
 
   defp sender do
-    Application.get_env(:ttf_auth, :sender)
+    Application.get_env(:keylex, :sender)
   end
 
   defp code_from(token) do

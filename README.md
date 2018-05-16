@@ -97,10 +97,9 @@ defmodule MyAppWeb.Router do
 end
 ```
 
-**Note: There are 2 important things to keep in mind when using Keylex
+**Note: There is 1 important thing to keep in mind when using Keylex
 
-1. It is the developers responsibility, for now, to check if the request is authorized accessing the entity in Plug.Conn.
-2. Every request made to the protected endpoints must have the authorization header with the value:
+1. Every request made to the protected endpoints must have the authorization header with the value:
 `<entity> <access>` with a space between values.
 
 ## Contributing

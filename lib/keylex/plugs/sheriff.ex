@@ -36,7 +36,9 @@ defmodule Keylex.Plugs.Sheriff do
       [entity | _] = String.split(token, " ")
       put_private(conn, :entity, entity)
     else
-      _error -> conn
+      _error ->
+        error = Jason.encode!(%{error: 'needs authentication'})
+        send_resp(conn, 401, error)
     end
   end
 end
